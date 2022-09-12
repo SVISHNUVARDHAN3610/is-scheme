@@ -47,3 +47,6 @@ class Buffer:
     self.episodes         = []
     self.loss             = []
     self.mean_loss        = []
+    self.es_episodes      = [0]
+    self.agent1_policy    = []
+    self.agent2_policy    = []

@@ -142,6 +142,7 @@ class Main:
     self.buffer.agent1_n_q_value = []
     self.buffer.agent1_reward = []
   def run(self):
+    sum =0
     for i in range(self.n_games):
       state = env.reset()
       score = [0,0]
@@ -152,6 +153,7 @@ class Main:
       plts = Ploting(self.buffer)
       print("episode:",i,",","agent1_reward:",self.buffer.agent1_mean_reward[i],",","agent2_reward:",self.buffer.agent1_mean_reward[i])
       for step in range(self.steps):
+        sum = sum+1
         if i==0 & step==0:
           msg1 = torch.zeros(1)
           msg2 = torch.zeros(1)

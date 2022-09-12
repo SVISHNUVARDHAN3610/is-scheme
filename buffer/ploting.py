@@ -1,4 +1,5 @@
 
+from cProfile import label
 import matplotlib.pyplot as plt
 class Ploting:
   def __init__(self,buffer):
@@ -14,6 +15,14 @@ class Ploting:
     self.agent1_reward()
     self.agent2_reward()
     #self.agent_returns()
+    #self.policy()
+  def policy(self):
+    plt.plot(self.buffer.es_episodes,self.buffer.agent1_policy,label="agent1")
+    plt.plot(self.buffer.es_episodes,self.buffer.agent2_policy,label = "agent2")
+    plt.xlabel("episode")
+    plt.ylabel("policy")
+    plt.savefig("memory/ploting/agent_policy")
+    plt.close()
   def agent1_loss(self):
     plt.plot(self.buffer.episodes,self.buffer.agent1_mean_loss)
     plt.xlabel("episodes")

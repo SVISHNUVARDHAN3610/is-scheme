@@ -81,6 +81,7 @@ class Agent1:
     loss              = actor_loss + 0.5*critic_loss
     mgn_loss          = message * log_prob * value
     mgn_loss          = torch.mean(mgn_loss)
+    self.buffer.agent1_policy.append(action)
     mgn_loss          = torch.tensor(mgn_loss,requires_grad=True).to(self.device)
     torch.save(self.actor.state_dict(),"memory/Agent1/actor.pth")
     torch.save(self.critic.state_dict(),"memory/Agent1/critic.pth")
